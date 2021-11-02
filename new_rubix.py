@@ -15,7 +15,7 @@ processMoves = lambda moves: list(itertools.chain(*[[movee[0] for i in range(int
 
 def det(matrix, triangular_method=False):
     if triangular_method:
-        lu = splu(matrix) # it can be showen using cofactor expansion and induction that det of triangular is product of diag
+        lu = splu(matrix) # it can be shown using cofactor expansion and induction that det of triangular is product of diag
         return reduce(lambda x, y: x*y, np.concatenate([lu.U.diagonal(),lu.L.diagonal()]))
     if matrix.shape == (2, 2):
         return matrix[0][0] * matrix[1][1] - matrix[1][0] * matrix[0][1]
